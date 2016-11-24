@@ -19,16 +19,16 @@ import java.util.List;
 /**
  * Created by sunil on 27-Feb-16.
  */
-public class PersonAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements ItemTouchHelperAdapter {
+public class ItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements ItemTouchHelperAdapter {
 
-    private List<PersonModel> mPersonList;
+    private List<ItemModel> mPersonList;
     OnItemClickListener mItemClickListener;
     private static final int TYPE_ITEM = 0;
     private final LayoutInflater mInflater;
     private final OnStartDragListener mDragStartListener;
     private Context mContext;
 
-    public PersonAdapter(Context context, List<PersonModel> list, OnStartDragListener dragListner) {
+    public ItemAdapter(Context context, List<ItemModel> list, OnStartDragListener dragListner) {
         this.mPersonList = list;
         this.mInflater = LayoutInflater.from(context);
         mDragStartListener = dragListner;
@@ -62,7 +62,7 @@ public class PersonAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         if (viewHolder instanceof VHItem) {
 
             final VHItem holder= (VHItem)viewHolder;
-            ((VHItem) viewHolder).title.setText(mPersonList.get(i).getPersonName());
+            ((VHItem) viewHolder).title.setText(mPersonList.get(i).getName());
             Picasso.with(mContext)
                     .load(mPersonList.get(i).getImagePath())
                     .placeholder(R.drawable.ic_profile)
@@ -148,7 +148,7 @@ public class PersonAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return true;
     }
 
-    public void updateList(List<PersonModel> list) {
+    public void updateList(List<ItemModel> list) {
         mPersonList = list;
         notifyDataSetChanged();
     }

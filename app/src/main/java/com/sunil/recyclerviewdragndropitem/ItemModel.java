@@ -3,22 +3,22 @@ package com.sunil.recyclerviewdragndropitem;
 /**
  * Created by sunil on 27-Feb-16.
  */
-public class PersonModel {
+public class ItemModel {
     
-    private String personName;
+    private String name;
     private String imagePath;
 
-    public PersonModel(String personName, String imagePath) {
-        this.personName = personName;
+    public ItemModel(String name, String imagePath) {
+        this.name = name;
         this.imagePath = imagePath;
     }
 
-    public String getPersonName() {
-        return personName;
+    public String getName() {
+        return name;
     }
 
-    public void setPersonName(String personName) {
-        this.personName = personName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getImagePath() {

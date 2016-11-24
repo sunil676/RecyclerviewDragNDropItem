@@ -40,13 +40,13 @@ public class MainActivity extends AppCompatActivity implements OnStartDragListen
         });
 
 
-        List<PersonModel> list = Utility.getListPerson();
+        List<ItemModel> list = Utility.getListPerson();
 
         mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        PersonAdapter mAdapter = new PersonAdapter(this, list, this);
+        ItemAdapter mAdapter = new ItemAdapter(this, list, this);
         ItemTouchHelper.Callback callback =
                 new EditItemTouchHelperCallback(mAdapter);
         mItemTouchHelper = new ItemTouchHelper(callback);
